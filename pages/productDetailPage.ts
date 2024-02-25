@@ -10,7 +10,17 @@ export default class ProductDetailPage {
         await this.page.getByLabel('Quantity').fill(qty);
     }
 
-    async clickAddToCart() {
-        await this.page.getByRole('button', { name: ' Add to cart' }).click();
+    async addToCart() {
+        this.page.locator("//button[normalize-space()='Add to cart']").click();
+    }
+
+    async isMessageBannerVisible() { 
+        const banner = this.page.locator(".woocommerce-message");
+        await banner.waitFor({state:"visible"})
+        return banner;
+    }
+
+    async clickViewCart() {
+        await this.page.locator("//a[normalize-space()='View cart']").click();
     }
 }
