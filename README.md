@@ -67,6 +67,6 @@ Expected result: Product quantity should be set to 1 by default.
 
 The aim was to test the functionality of product search, adding a product to the cart, and removing a product from the cart using two different scenarios. Each scenario reflects a similar path, although they differentiate by using different elements available on the website.  
 
-In the first scenario assume that the user immediately searches for a product in the store, changes its quantity on the product page (which is enforced by an Error_02), then adds it to the cart. While setting the value to null in the cart and updating it, the user removes the product.  
+In the first scenario, the assumption was that the user immediately searches for a product in the store, modifies its quantity on the product page (as enforced by Error_02), and then adds it to the cart. While setting the value to null in the cart and updating it, the user removes the product. 
 
 The second scenario assumes that the user enters a phrase unrelated to the store's assortment in the search. It is checked whether the user is correctly informed about the lack of matches and whether an additional search window appears for them to use. After searching for the correct phrase, the user adds the product to the cart and attempts to remove it using the button next to the product in the cart. This scenario ends in failure because the product removal button does not work correctly (Error_01).
