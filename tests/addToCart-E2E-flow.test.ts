@@ -36,5 +36,7 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
         console.log('TITLE: ' + testInfo.title);
         const { headerPage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
         await page.goto(`${baseURL}`);
+        await headerPage.clickMyCartBtn();
+        await page.waitForTimeout(5000);
     })    
 })

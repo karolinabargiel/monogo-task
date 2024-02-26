@@ -11,4 +11,8 @@ export default class HeaderPage {
         await this.page.click("#search-top-bar-submit");
     }
 
+    async clickMyCartBtn() {
+        await this.page.locator(".top-cart").click();
+    }
+
 }
