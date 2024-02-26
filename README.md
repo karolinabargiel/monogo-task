@@ -20,7 +20,7 @@ Technology Stack: Playwright & TypeScript.
 ## Covered test scenarios:
 ### Scenario_01  
 1. Go to https://skleptest.pl/
-2. Search for product
+2. Search for product (search field on header)
 3. Verify search results matches searched phrase
 4. Click on item on search result page and go to product detail page
 5. Set product quantity
@@ -32,3 +32,27 @@ Technology Stack: Playwright & TypeScript.
 11. Set product quantity to null
 12. Click update cart
 13. Verify product was removed, cart is empty
+
+### Scenario_02
+1. Go to https://skleptest.pl/
+2. Input some dummy value into search field on header
+3. Verify no product was found
+4. Input valid value into search field on result page
+5. Click on item on search result page and go to product detail page
+6. Set product quantity
+7. Click add to cart button
+8. Verify that message about adding product to cart is displayed
+9. Click "My Cart" button on header
+10. Verify product name in cart is correct
+11. Verify product quantity is correct
+12. Click remove item from cart
+13. Verify item was successfully removed
+
+Please take note: Scenario_02 is failing, due to Issue_01_User not able to remove product from cart by clicking remove icon.
+
+#### Found issues:
+Issue_01_User not able to remove product from cart by clicking remove icon. 
+  
+Steps to reproduce: Add product to cart, go to cart, click remove icon next to item in cart.  
+Actual result: Product is still visible in cart.  
+Expected result: Product should be removed from cart.  
