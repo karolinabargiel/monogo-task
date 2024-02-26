@@ -7,7 +7,6 @@ import { initializePages } from '../base/initializePages';
 test.describe("Search for product, add to cart, remove from cart", async () => {
 
     test("Scenario_01", async ({ page, baseURL }, testInfo) => {
-        console.log('TITLE: ' + testInfo.title);
         const { headerPage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
         await page.goto(`${baseURL}`);
         await headerPage.searchForProduct(data1.productName);
@@ -26,7 +25,6 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
         await cartPage.clickUpdateCart();
         await expect(await cartPage.isMessageBannerVisible()).toBeVisible();
         await expect(await cartPage.isEmptyCartInfoVisible()).toBeVisible();
-        console.log('STATUS: ' + testInfo.status);
     })
 
     
