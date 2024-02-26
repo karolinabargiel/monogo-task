@@ -7,9 +7,9 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
 
     test("Scenario_01", async ({ page, baseURL }, testInfo) => {
         console.log('TITLE: ' + testInfo.title);
-        const { homePage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
+        const { headerPage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
         await page.goto(`${baseURL}`);
-        await homePage.searchForProduct(data.productName);
+        await headerPage.searchForProduct(data.productName);
         const searchResults = await searchResultPage.searchResultsList.all();
         await Promise.all(searchResults.map(async (result) => {
         await expect(result).toContainText(data.productName);
@@ -34,7 +34,7 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
     
     test("Scenario_02", async ({ page, baseURL }, testInfo) => {
         console.log('TITLE: ' + testInfo.title);
-        const { homePage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
+        const { headerPage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
         await page.goto(`${baseURL}`);
     })    
 })
