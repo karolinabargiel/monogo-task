@@ -5,7 +5,7 @@ Objective: To automate 2-4 tests focusing on a key user journey: finding a produ
 Technology Stack: Playwright & TypeScript.  
 
 ## Required software
-* Node js -> v.14 or above
+* Node.js -> v.14 or above
 * Visual Studio Code
 * Playwright Vs Code Extension
 
@@ -48,16 +48,25 @@ Technology Stack: Playwright & TypeScript.
 12. Click remove item from cart
 13. Verify item was successfully removed
 
-Please take note: Scenario_02 is failing, due to Issue_01_User not able to remove product from cart by clicking remove icon.
+Please take note: Scenario_02 is failing, due to Error_01_User not able to remove product from cart by clicking remove icon.  
+All tests are run on Chrome, Firefox and Safari browsers.
 
 #### Found issues:
-Issue_01_User not able to remove product from cart by clicking remove icon.  
+Error_01_User not able to remove product from cart by clicking remove icon.  
 Steps to reproduce: Add product to cart, go to cart, click remove icon next to item in cart.  
 Actual result: Product is still visible in cart.  
 Expected result: Product should be removed from cart.  
 
 
-Issue_02_Product quantity set to "-9999999999" on Product Detail Page by default.  
+Error_02_Product quantity set to "-9999999999" on Product Detail Page by default.  
 Steps to reproduce: Click on any product in shop to open PDP.  
 Actual result: Product quantity is set to "-9999999999".  
 Expected result: Product quantity should be set to 1 by default.
+
+## Testing approach
+
+The aim was to test the functionality of product search, adding a product to the cart, and removing a product from the cart using two different scenarios. Each scenario reflects a similar path, although they differentiate by using different elements available on the website.  
+
+In the first scenario, the assumption was that the user immediately searches for a product in the store, modifies its quantity on the product page (as enforced by Error_02), and then adds it to the cart. While setting the value to null in the cart and updating it, the user removes the product. 
+
+The second scenario assumes that the user enters a phrase unrelated to the store's assortment in the search. It is checked whether the user is correctly informed about the lack of matches and whether an additional search window appears for them to use. After searching for the correct phrase, the user adds the product to the cart and attempts to remove it using the button next to the product in the cart. This scenario ends in failure because the product removal button does not work correctly (Error_01).
