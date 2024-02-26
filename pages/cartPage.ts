@@ -27,7 +27,15 @@ export default class CartPage {
 
     async isEmptyCartInfoVisible() { 
         const infoText = this.page.locator(".cart-empty");
-        await infoText.waitFor({state:"visible"})
         return infoText;
+    }
+
+    async getProductQty() {
+        const quantity = this.page.getByLabel('Quantity').getAttribute('value');
+        return quantity;
+    }
+
+    async clickRemoveItemFromCart() {
+        await this.page.locator("a[aria-label='Remove this item']").click();
     }
 }
