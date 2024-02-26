@@ -40,7 +40,6 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
         await productDetailPage.addToCart();
         await expect(await productDetailPage.isMessageBannerVisible()).toBeVisible();
         await headerPage.clickMyCartBtn();
-        await cartPage.getProductQty();
         expect(await cartPage.getProductFromCart()).toBe(data2.productName);
         expect(await cartPage.getProductQty()).toBe(data2.productQty);
         await cartPage.clickRemoveItemFromCart();
