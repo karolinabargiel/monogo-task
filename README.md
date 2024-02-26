@@ -51,8 +51,13 @@ Technology Stack: Playwright & TypeScript.
 Please take note: Scenario_02 is failing, due to Issue_01_User not able to remove product from cart by clicking remove icon.
 
 #### Found issues:
-Issue_01_User not able to remove product from cart by clicking remove icon. 
-  
+Issue_01_User not able to remove product from cart by clicking remove icon.  
 Steps to reproduce: Add product to cart, go to cart, click remove icon next to item in cart.  
 Actual result: Product is still visible in cart.  
 Expected result: Product should be removed from cart.  
+
+
+Issue_02_Product quantity set to "-9999999999" on Product Detail Page by default.  
+Steps to reproduce: Click on any product in shop to open PDP.  
+Actual result: Product quantity is set to "-9999999999".  
+Expected result: Product quantity should be set to 1 by default.
