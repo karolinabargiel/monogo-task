@@ -6,7 +6,7 @@ import { initializePages } from '../base/initializePages';
 
 test.describe("Search for product, add to cart, remove from cart", async () => {
 
-    test("Scenario_01", async ({ page, baseURL }, testInfo) => {
+    test("Scenario_01", async ({ page, baseURL }) => {
         const { headerPage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
         await page.goto(`${baseURL}`);
         await headerPage.searchForProduct(data1.productName);
@@ -28,8 +28,7 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
     })
 
     
-    test("Scenario_02", async ({ page, baseURL }, testInfo) => {
-        console.log('TITLE: ' + testInfo.title);
+    test("Scenario_02", async ({ page, baseURL }) => {
         const { headerPage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
         await page.goto(`${baseURL}`);
         await headerPage.searchForProduct(data2.dummyValue);
@@ -44,6 +43,5 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
         expect(await cartPage.getProductQty()).toBe(data2.productQty);
         await cartPage.clickRemoveItemFromCart();
         await expect(await cartPage.isEmptyCartInfoVisible()).toBeVisible();
-        console.log('STATUS: ' + testInfo.status);
     })    
 })
