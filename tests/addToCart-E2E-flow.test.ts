@@ -30,4 +30,11 @@ test.describe("Search for product, add to cart, remove from cart", async () => {
 
         console.log('STATUS: ' + testInfo.status);
     })
+
+    
+    test("Scenario_02", async ({ page, baseURL }, testInfo) => {
+        console.log('TITLE: ' + testInfo.title);
+        const { homePage, searchResultPage, productDetailPage, cartPage } = initializePages(page);
+        await page.goto(`${baseURL}`);
+    })    
 })
